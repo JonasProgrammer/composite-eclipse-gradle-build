@@ -1,0 +1,5 @@
+rootProject.name = 'eclipse-processor-test'
+
+includeBuild 'generator'
+includeBuild 'data'
+includeBuild 'consumer'

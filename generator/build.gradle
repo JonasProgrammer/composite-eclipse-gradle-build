@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'java-library'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+java.sourceCompatibility = 17
+java.targetCompatibility = 17
+
+repositories {
+    mavenCentral()
+}
+
+def mapStructVersion = '1.5.5.Final'
+
+dependencies {
+    api "org.mapstruct:mapstruct:$mapStructVersion"
+    compileOnlyApi "org.mapstruct:mapstruct-processor:$mapStructVersion"
+    annotationProcessor "org.mapstruct:mapstruct-processor:$mapStructVersion"
+
+    compileOnly 'com.google.auto.service:auto-service:1.1.1'
+    annotationProcessor 'com.google.auto.service:auto-service:1.1.1'
+}

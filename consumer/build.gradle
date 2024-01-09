@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+java.sourceCompatibility = 17
+java.targetCompatibility = 17
+
+application.mainClass = 'de.jsje.ept.consumer.Main'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "$group:data:$version"
+}
+
