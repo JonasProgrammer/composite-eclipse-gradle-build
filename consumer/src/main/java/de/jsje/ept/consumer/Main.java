@@ -2,16 +2,16 @@ package de.jsje.ept.consumer;
 
 import java.util.UUID;
 
-import de.jsje.ept.data.A;
 import de.jsje.ept.data.Helper;
 
 public class Main {
 	public static void main(String[] args) {
 		final var uuid = UUID.randomUUID();
-		final var ret = Helper.impl().make(uuid.toString(), uuid.clockSequence());
+		final var n = (int) (uuid.getMostSignificantBits() & 0x7FFFFFFFL);
+		final var ret = Helper.impl().make(uuid.toString(), n);
 
 		System.out.println(uuid);
-		System.out.println(uuid.clockSequence());
+		System.out.println(n);
 
 		System.out.println(ret);
 		System.out.println(ret.tag);
