@@ -1,1 +1,13 @@
+plugins {
+    id 'eclipse'
+}
 
+def aggregate(String name) {
+    def sub = ['consumer', 'data', 'generator']
+    tasks.named(name) {
+        sub.each { dependsOn gradle.includedBuild(it).task(":$name") }
+    }
+}
+
+aggregate('eclipse')
+aggregate('cleanEclipse')

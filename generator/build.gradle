@@ -1,6 +1,8 @@
 plugins {
     id 'java'
     id 'java-library'
+    id 'eclipse'
+    id 'com.diffplug.eclipse.apt' version '3.44.0'
 }
 
 group = 'org.example'
