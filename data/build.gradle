@@ -25,3 +25,17 @@ dependencies {
     annotationProcessor "org.mapstruct:mapstruct-processor:$mapStructVersion"
 }
 
+eclipse {
+    classpath {
+        file {
+            whenMerged {
+                def artifactRef = fileReference(file(configurations.compileClasspath.resolvedConfiguration.resolvedArtifacts.find {
+                    def id = it.moduleVersion.id
+                    id.name == 'generator' && id.group == group
+                }.file))
+                entries += new org.gradle.plugins.ide.eclipse.model.Library(artifactRef)
+            }
+        }
+    }
+}
+
